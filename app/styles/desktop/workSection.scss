@@ -1,0 +1,13 @@
+@import "./variables.scss";
+
+.workSection {
+	height: 80%;
+	width: 50%;
+	border-radius: 10px;
+	padding: 10px;
+	margin-right: 5%;
+	border: dashed 2px $font-color;
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
+	-moz-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
+	box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
+}

@@ -1,0 +1,31 @@
+@import "./variables.scss";
+
+.listElement {
+	font-size: 20px;
+	color: $font-color;
+	text-shadow: 3px 0px 4px $font-color;
+	padding: 5px;
+	transition: linear 0.1s;
+}
+
+.listElement:hover {
+	background-color: $font-color;
+	color: black;
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
+	-moz-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
+	box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+.listElement.active {
+	color: black;
+	background-color: $active;
+	text-shadow: none;
+	border-radius: 3px;
+	transition: none;
+}
+
+.listElement.active:hover {
+	background-color: $font-color;
+}
