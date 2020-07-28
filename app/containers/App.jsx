@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { List } from "./../components/List.jsx";
 import { Logo } from "./../components/Logo.jsx";
 import { WorkSection } from "./../components/WorkSection.jsx";
+import { setActive } from "./../actions/listActions.js";
 import "./../styles/desktop/body.scss";
 
 function App(props) {
-	const [pageState, setPageState] = useState(<List />);
+	const { todoList, page, setActiveAction } = props;
+
+	let pageState;
+
+	if (page.pageState == "List")
+		pageState = (
+			<List
+				tasks={todoList.tasks}
+				setActive={setActiveAction}
+			/>
+		);
+	else if (page.pageState == "WorkSection") {
+		pageState = <WorkSection />;
+	}
 
 	return (
 		<div>
@@ -17,10 +31,15 @@ function App(props) {
 }
 
 const mapStateToProps = store => {
+	console.log(store);
 	return {
-		test: store.test,
-		test2: store.test2
+		todoList: store.todoList,
+		page: store.page
 	};
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+	setActiveAction: id => dispatch(setActive(id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

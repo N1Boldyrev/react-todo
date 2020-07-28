@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { testReducer } from "./test";
-import { test2Reducer } from "./test2";
+import { todoListReducer } from "./todoList";
+import { pageReducer } from "./pageReducer";
 
 export const rootReducer = combineReducers({
-	test: testReducer,
-	test2: test2Reducer
+	todoList: todoListReducer,
+	page: pageReducer
 });

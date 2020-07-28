@@ -5,7 +5,9 @@
 	"repository": "https://github.com/N1Boldyrev/react-todo.git",
 	"author": "N1Boldyrev <n1boldyrev@yandex.ru>",
 	"scripts": {
-		"dev": "webpack --mode development --watch"
+		"dev": "webpack --mode development --watch",
+		"build-dev": "webpack --mode development",
+		"buld-prod": "webpack --mode production"
 	},
 	"license": "MIT",
 	"dependencies": {

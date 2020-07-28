@@ -6,6 +6,9 @@
 	text-shadow: 3px 0px 4px $font-color;
 	padding: 5px;
 	transition: linear 0.1s;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
 }
 
 .listElement:hover {
@@ -24,6 +27,9 @@
 	text-shadow: none;
 	border-radius: 3px;
 	transition: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
 }
 
 .listElement.active:hover {

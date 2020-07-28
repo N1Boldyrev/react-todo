@@ -2,18 +2,21 @@ import React from "react";
 import { ListElement } from "./ListElement.jsx";
 import "./../styles/desktop/list.scss";
 
-export function List() {
+export function List(props) {
+	const { tasks, setActive } = props;
+
 	return (
 		<div className="list">
 			<div className="elements">
-				<ListElement
-					className="listElement"
-					innerText="Test"
-				/>
-				<ListElement
-					className="listElement active"
-					innerText="Active element"
-				/>
+				{tasks.map(elem => (
+					<ListElement
+						className={elem.className}
+						innerText={elem.taskName}
+						key={elem.id}
+						id={elem.id}
+						setActive={setActive}
+					/>
+				))}
 			</div>
 			<div className="list-tools">
 				<button>Добавить</button>

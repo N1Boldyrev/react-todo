@@ -2,7 +2,7 @@
 
 .workSection {
 	height: 80%;
-	width: 50%;
+	width: 80%;
 	border-radius: 10px;
 	padding: 10px;
 	margin-right: 5%;
@@ -10,4 +10,6 @@
 	-webkit-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
 	-moz-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
 	box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
+	color: $font-color;
+	outline: none;
 }
