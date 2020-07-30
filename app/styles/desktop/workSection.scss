@@ -2,14 +2,33 @@
 
 .workSection {
 	height: 80%;
-	width: 80%;
+	width: 40%;
 	border-radius: 10px;
 	padding: 10px;
-	margin-right: 5%;
 	border: dashed 2px $font-color;
 	-webkit-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
 	-moz-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
 	box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
 	color: $font-color;
 	outline: none;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.input {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	input {
+		font-size: 20px;
+		outline: none;
+		background-color: $background;
+		color: $font-color;
+		width: 100%;
+		border: none;
+		border-bottom: solid 1px $font-color;
+	}
 }
