@@ -116,6 +116,20 @@ export function tasksReducer(state = initialState, action) {
 			}
 		}
 
+		case "CHANGE_TASK_TEXT": {
+			let newObj = Object.assign({}, state);
+			for (let key in state.tasksList) {
+				if (
+					state.tasksList[key].id ==
+					action.payload.id
+				) {
+					newObj.tasksList[key].text =
+						action.payload.newText;
+					return newObj;
+				}
+			}
+		}
+
 		default:
 			return state;
 	}

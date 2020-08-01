@@ -4,3 +4,27 @@ export function setActive(id) {
 		payload: id
 	};
 }
+
+export function createNewElem(elemName) {
+	return {
+		type: "CREATE_NEW_ELEM",
+		payload: elemName
+	};
+}
+
+export function changeElemName(newName, id) {
+	return {
+		type: "CHANGE_ELEM_NAME",
+		payload: {
+			newName: newName,
+			id: id
+		}
+	};
+}
+
+export function deleteElem(id) {
+	return {
+		type: "DELETE_ELEM",
+		payload: id
+	};
+}

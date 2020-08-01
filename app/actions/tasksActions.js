@@ -31,3 +31,13 @@ export function setChecked(id) {
 		payload: id
 	};
 }
+
+export function changeTaskText(id, newText) {
+	return {
+		type: "CHANGE_TASK_TEXT",
+		payload: {
+			id: id,
+			newText: newText
+		}
+	};
+}

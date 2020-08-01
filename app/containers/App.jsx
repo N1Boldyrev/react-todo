@@ -3,7 +3,13 @@ import { connect } from "react-redux";
 import { List } from "./../components/List.jsx";
 import { Logo } from "./../components/Logo.jsx";
 import { WorkSection } from "./../components/WorkSection.jsx";
-import { setActive } from "./../actions/listActions.js";
+import { TextChanger } from "./../components/TextChanger.jsx";
+import {
+	setActive,
+	createNewElem,
+	changeElemName,
+	deleteElem
+} from "./../actions/listActions.js";
 import {
 	createNewTask,
 	deleteTask,
@@ -12,6 +18,7 @@ import {
 	setChecked
 } from "./../actions/tasksActions.js";
 import { setPageState } from "./../actions/pageActions.js";
+import { textChangerSetValue } from "./../actions/textChangerActions.js";
 import "./../styles/desktop/body.scss";
 
 function App(props) {
@@ -19,13 +26,18 @@ function App(props) {
 		todoList,
 		page,
 		tasks,
+		textChanger,
 		setActiveAction,
 		createNewTaskAction,
 		deleteTaskAction,
 		closeInstrumentsAction,
 		setActiveTaskAction,
 		setPageStateAction,
-		setCheckedAction
+		setCheckedAction,
+		textChangerSetValueAction,
+		createNewElemAction,
+		changeElemNameAction,
+		deleteElemAction
 	} = props;
 
 	let pageState;
@@ -34,7 +46,11 @@ function App(props) {
 		pageState = (
 			<List
 				tasks={todoList.tasks}
+				todoList={todoList}
 				setActive={setActiveAction}
+				setPageState={setPageStateAction}
+				setTextChangerValue={textChangerSetValueAction}
+				deleteElem={deleteElemAction}
 			/>
 		);
 	else if (page.pageState == "WorkSection") {
@@ -49,6 +65,21 @@ function App(props) {
 				instruments={tasks.instrumentsState}
 				setPageState={setPageStateAction}
 				setChecked={setCheckedAction}
+				setTextChangerValue={textChangerSetValueAction}
+			/>
+		);
+	} else if (page.pageState == "TextChanger") {
+		pageState = (
+			<TextChanger
+				innerText={textChanger.innerText}
+				placeholder={textChanger.placeholder}
+				elementId={textChanger.elementId}
+				rootPage={textChanger.rootPage}
+				buttonText={textChanger.buttonText}
+				setPageState={setPageStateAction}
+				setTextChangerValue={textChangerSetValueAction}
+				createNewElem={createNewElemAction}
+				changeElemName={changeElemNameAction}
 			/>
 		);
 	}
@@ -62,10 +93,12 @@ function App(props) {
 }
 
 const mapStateToProps = store => {
+	console.log(store);
 	return {
 		todoList: store.todoList,
 		page: store.page,
-		tasks: store.tasks
+		tasks: store.tasks,
+		textChanger: store.textChanger
 	};
 };
 
@@ -76,7 +109,27 @@ const mapDispatchToProps = dispatch => ({
 	closeInstrumentsAction: () => dispatch(closeInstruments()),
 	setActiveTaskAction: id => dispatch(setActiveTask(id)),
 	setPageStateAction: state => dispatch(setPageState(state)),
-	setCheckedAction: id => dispatch(setChecked(id))
+	setCheckedAction: id => dispatch(setChecked(id)),
+	textChangerSetValueAction: (
+		innerText,
+		placeholder,
+		elementId,
+		rootPage,
+		buttonText
+	) =>
+		dispatch(
+			textChangerSetValue(
+				innerText,
+				placeholder,
+				elementId,
+				rootPage,
+				buttonText
+			)
+		),
+	createNewElemAction: elemName => dispatch(createNewElem(elemName)),
+	changeElemNameAction: (newName, id) =>
+		dispatch(changeElemName(newName, id)),
+	deleteElemAction: id => dispatch(deleteElem(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -11,7 +11,8 @@ const initialState = {
 			id: 2
 		}
 	],
-	nowActive: null
+	nowActive: null,
+	activeTitle: ""
 };
 
 export function todoListReducer(state = initialState, action) {
@@ -33,10 +34,45 @@ export function todoListReducer(state = initialState, action) {
 					newObj.tasks[key].className =
 						"listElement active";
 					newObj.nowActive = action.payload;
+					newObj.activeTitle =
+						state.tasks[key].taskName;
 				}
 			}
 			return newObj;
 		}
+		case "CREATE_NEW_ELEM": {
+			let newObj = Object.assign({}, state);
+			let payload = {
+				taskName: action.payload,
+				className: "listElement",
+				id: Math.random()
+			};
+			newObj.tasks.push(payload);
+			return newObj;
+		}
+
+		case "CHANGE_ELEM_NAME": {
+			let newObj = Object.assign({}, state);
+			for (let key in state.tasks) {
+				if (state.tasks[key].id == action.payload.id) {
+					state.tasks[key].taskName =
+						action.payload.newName;
+					return newObj;
+				}
+			}
+		}
+
+		case "DELETE_ELEM": {
+			let newObj = Object.assign({}, state);
+			for (let key in state.tasks) {
+				if (state.tasks[key].id == action.payload) {
+					newObj.tasks.splice(key, 1);
+					newObj.nowActive = null;
+					return newObj;
+				}
+			}
+		}
+
 		default:
 			return state;
 	}
