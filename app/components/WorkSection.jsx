@@ -18,7 +18,10 @@ export function WorkSection(props) {
 			<InstrumentsButtons
 				closeInstruments={props.closeInstruments}
 				currentTask={props.currentTask}
+				currentTaskText={props.currentTaskText}
 				deleteTask={props.deleteTask}
+				setPageState={props.setPageState}
+				setTextChangerValue={props.setTextChangerValue}
 			/>
 		);
 

@@ -9,7 +9,9 @@ const initialState = {
 		}
 	],
 	currentTask: null,
-	instrumentsState: "instruments close"
+	currentTaskText: "",
+	instrumentsState: "instruments close",
+	allTasksComplete: false
 };
 
 export function tasksReducer(state = initialState, action) {
@@ -74,6 +76,8 @@ export function tasksReducer(state = initialState, action) {
 					newObj.tasksList[key].className =
 						"checkboxText active";
 					newObj.currentTask = action.payload;
+					newObj.currentTaskText =
+						state.tasksList[key].text;
 
 					if (
 						state.instrumentsState ==
@@ -128,6 +132,17 @@ export function tasksReducer(state = initialState, action) {
 					return newObj;
 				}
 			}
+		}
+
+		case "CHECK_ALL_TASKS_COMPLETE": {
+			let tasksComplete = true;
+			for (let key in state.tasksList) {
+				if (state.tasksList[key].checked == false) {
+					tasksComplete = false;
+					break;
+				}
+			}
+			return { ...state, allTasksComplete: tasksComplete };
 		}
 
 		default:

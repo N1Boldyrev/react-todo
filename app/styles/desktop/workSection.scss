@@ -27,8 +27,28 @@
 		outline: none;
 		background-color: $background;
 		color: $font-color;
+		font-family: "Press Start 2P", cursive;
+		text-shadow: 1px 0px 4px $font-color;
 		width: 100%;
 		border: none;
 		border-bottom: solid 1px $font-color;
+	}
+
+	input::placeholder {
+		text-shadow: none;
+	}
+}
+
+.workSection-instruments {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	button {
+		width: 100%;
+	}
+
+	:first-child {
+		width: 10%;
 	}
 }

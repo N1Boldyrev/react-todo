@@ -10,9 +10,9 @@
 }
 
 .fakeCheckbox {
-	width: 2em;
-	height: 2em;
-	border: 1px solid $font-color;
+	width: 20px;
+	height: 20px;
+	border: 1px dotted $font-color;
 	border-radius: 3px;
 	transition: linear 0.1s;
 }
@@ -34,9 +34,10 @@
 }
 
 .checkboxText {
-	font-size: 2em;
+	font-size: 20px;
 	margin-left: 10px;
 	padding-left: 5px;
+	padding: 5px;
 	width: 100%;
 	transition: linear 0.1s;
 }
@@ -60,4 +61,8 @@
 	-khtml-user-select: none;
 	user-select: none;
 	transition: linear 0.1s;
+}
+
+.checkboxText.active:hover {
+	background-color: $font-color;
 }

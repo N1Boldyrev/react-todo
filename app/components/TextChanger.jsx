@@ -43,6 +43,15 @@ export class TextChanger extends Component {
 		) {
 			this.props.createNewElem(input.value);
 			this.backToRoot();
+		} else if (
+			this.props.rootPage == "WorkSection" &&
+			input.value != ""
+		) {
+			this.props.changeTaskText(
+				this.props.elementId,
+				input.value
+			);
+			this.backToRoot();
 		}
 	}
 
@@ -53,9 +62,11 @@ export class TextChanger extends Component {
 	render() {
 		return (
 			<div className="textChanger">
-				<div>{this.props.innerText}</div>
+				<div className="textChanger-text">
+					{this.props.innerText}
+				</div>
 
-				<div>
+				<div className="textChanger-input">
 					<input
 						type="text"
 						ref={this.textInput}
@@ -63,7 +74,7 @@ export class TextChanger extends Component {
 						onChange={this.inputChange}
 					/>
 				</div>
-				<div>
+				<div className="textChanger-instruments">
 					<button onClick={this.backToRoot}>
 						{"<<"}
 					</button>

@@ -1,5 +1,5 @@
 const initialState = {
-	pageState: "List"
+	pageState: "WorkSection"
 };
 
 export function pageReducer(state = initialState, action) {

@@ -12,7 +12,8 @@ const initialState = {
 		}
 	],
 	nowActive: null,
-	activeTitle: ""
+	activeTitle: "",
+	listToolsIsOpen: false
 };
 
 export function todoListReducer(state = initialState, action) {
@@ -36,6 +37,7 @@ export function todoListReducer(state = initialState, action) {
 					newObj.nowActive = action.payload;
 					newObj.activeTitle =
 						state.tasks[key].taskName;
+					newObj.listToolsIsOpen = true;
 				}
 			}
 			return newObj;
@@ -67,6 +69,26 @@ export function todoListReducer(state = initialState, action) {
 			for (let key in state.tasks) {
 				if (state.tasks[key].id == action.payload) {
 					newObj.tasks.splice(key, 1);
+					newObj.nowActive = null;
+					return newObj;
+				}
+			}
+		}
+
+		case "CLOSE_TOOLS": {
+			if (state.listToolsIsOpen == true)
+				return {
+					...state,
+					listToolsIsOpen: false
+				};
+		}
+
+		case "SET_NON_ACTIVE": {
+			let newObj = Object.assign({}, state);
+			for (let key in state.tasks) {
+				if (state.tasks[key].id == action.payload) {
+					newObj.tasks[key].className =
+						"listElement";
 					newObj.nowActive = null;
 					return newObj;
 				}

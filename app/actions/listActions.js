@@ -28,3 +28,16 @@ export function deleteElem(id) {
 		payload: id
 	};
 }
+
+export function listToolsClose() {
+	return {
+		type: "CLOSE_TOOLS"
+	};
+}
+
+export function setNonActive(id) {
+	return {
+		type: "SET_NON_ACTIVE",
+		payload: id
+	};
+}

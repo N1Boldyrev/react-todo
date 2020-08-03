@@ -8,14 +8,17 @@ import {
 	setActive,
 	createNewElem,
 	changeElemName,
-	deleteElem
+	deleteElem,
+	listToolsClose,
+	setNonActive
 } from "./../actions/listActions.js";
 import {
 	createNewTask,
 	deleteTask,
 	closeInstruments,
 	setActiveTask,
-	setChecked
+	setChecked,
+	changeTaskText
 } from "./../actions/tasksActions.js";
 import { setPageState } from "./../actions/pageActions.js";
 import { textChangerSetValue } from "./../actions/textChangerActions.js";
@@ -37,7 +40,10 @@ function App(props) {
 		textChangerSetValueAction,
 		createNewElemAction,
 		changeElemNameAction,
-		deleteElemAction
+		deleteElemAction,
+		changeTaskTextAction,
+		listToolsCloseAction,
+		setNonActiveAction
 	} = props;
 
 	let pageState;
@@ -51,6 +57,8 @@ function App(props) {
 				setPageState={setPageStateAction}
 				setTextChangerValue={textChangerSetValueAction}
 				deleteElem={deleteElemAction}
+				listToolsClose={listToolsCloseAction}
+				setNonActive={setNonActiveAction}
 			/>
 		);
 	else if (page.pageState == "WorkSection") {
@@ -61,6 +69,7 @@ function App(props) {
 				closeInstruments={closeInstrumentsAction}
 				setActiveTask={setActiveTaskAction}
 				currentTask={tasks.currentTask}
+				currentTaskText={tasks.currentTaskText}
 				tasks={tasks.tasksList}
 				instruments={tasks.instrumentsState}
 				setPageState={setPageStateAction}
@@ -80,6 +89,7 @@ function App(props) {
 				setTextChangerValue={textChangerSetValueAction}
 				createNewElem={createNewElemAction}
 				changeElemName={changeElemNameAction}
+				changeTaskText={changeTaskTextAction}
 			/>
 		);
 	}
@@ -129,7 +139,11 @@ const mapDispatchToProps = dispatch => ({
 	createNewElemAction: elemName => dispatch(createNewElem(elemName)),
 	changeElemNameAction: (newName, id) =>
 		dispatch(changeElemName(newName, id)),
-	deleteElemAction: id => dispatch(deleteElem(id))
+	deleteElemAction: id => dispatch(deleteElem(id)),
+	changeTaskTextAction: (id, newText) =>
+		dispatch(changeTaskText(id, newText)),
+	listToolsCloseAction: () => dispatch(listToolsClose()),
+	setNonActiveAction: id => dispatch(setNonActive(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

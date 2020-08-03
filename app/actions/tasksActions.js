@@ -41,3 +41,9 @@ export function changeTaskText(id, newText) {
 		}
 	};
 }
+
+export function checkTasksComplete() {
+	return {
+		type: "CHECK_ALL_TASKS_COMPLETE"
+	};
+}
