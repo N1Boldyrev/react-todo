@@ -2,7 +2,7 @@ module.exports = [
 	{
 		entry: __dirname + "/app/index.jsx",
 		output: {
-			path: __dirname + "/",
+			path: __dirname + "/static",
 			filename: "app.js",
 			publicPath: "/"
 		},

@@ -6,6 +6,32 @@ import "./../styles/desktop/workSection.scss";
 
 export function WorkSection(props) {
 	let instruments;
+	let tasks;
+
+	if (props.tasks.length == 0) {
+		tasks = <div className="tasksEmpty">Пусто</div>;
+	} else {
+		tasks = (
+			<div className="tasks">
+				{props.tasks.map(elem => (
+					<Checkbox
+						innerText={elem.text}
+						className={elem.className}
+						checkboxClass={
+							elem.checkboxClass
+						}
+						setActiveTask={
+							props.setActiveTask
+						}
+						setChecked={props.setChecked}
+						id={elem.id}
+						key={elem.id}
+					/>
+				))}
+			</div>
+		);
+	}
+
 	if (props.instruments == "instruments close")
 		instruments = (
 			<InstrumentsInput
@@ -27,23 +53,7 @@ export function WorkSection(props) {
 
 	return (
 		<div className="workSection">
-			<div className="tasks">
-				{props.tasks.map(elem => (
-					<Checkbox
-						innerText={elem.text}
-						className={elem.className}
-						checkboxClass={
-							elem.checkboxClass
-						}
-						setActiveTask={
-							props.setActiveTask
-						}
-						setChecked={props.setChecked}
-						id={elem.id}
-						key={elem.id}
-					/>
-				))}
-			</div>
+			{tasks}
 			{instruments}
 		</div>
 	);

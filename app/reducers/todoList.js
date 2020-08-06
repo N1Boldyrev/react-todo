@@ -1,19 +1,9 @@
 const initialState = {
-	tasks: [
-		{
-			taskName: "Hello from redux",
-			className: "listElement",
-			id: 1
-		},
-		{
-			taskName: "Hello from redux2",
-			className: "listElement",
-			id: 2
-		}
-	],
+	tasks: [],
 	nowActive: null,
 	activeTitle: "",
-	listToolsIsOpen: false
+	listToolsIsOpen: false,
+	wasLoadedFromServer: false
 };
 
 export function todoListReducer(state = initialState, action) {
@@ -23,14 +13,14 @@ export function todoListReducer(state = initialState, action) {
 			for (let key in state.tasks) {
 				if (
 					// Проверяем активный элемент и делаем неактивным
-					state.tasks[key].id ==
+					state.tasks[key]._id ==
 						state.nowActive &&
 					state.nowActive != action.payload
 				) {
 					newObj.tasks[key].className =
 						"listElement";
 				}
-				if (state.tasks[key].id == action.payload) {
+				if (state.tasks[key]._id == action.payload) {
 					//Делаем нажатый элемент активным
 					newObj.tasks[key].className =
 						"listElement active";
@@ -47,7 +37,7 @@ export function todoListReducer(state = initialState, action) {
 			let payload = {
 				taskName: action.payload,
 				className: "listElement",
-				id: Math.random()
+				_id: Math.random()
 			};
 			newObj.tasks.push(payload);
 			return newObj;
@@ -56,7 +46,7 @@ export function todoListReducer(state = initialState, action) {
 		case "CHANGE_ELEM_NAME": {
 			let newObj = Object.assign({}, state);
 			for (let key in state.tasks) {
-				if (state.tasks[key].id == action.payload.id) {
+				if (state.tasks[key]._id == action.payload.id) {
 					state.tasks[key].taskName =
 						action.payload.newName;
 					return newObj;
@@ -67,7 +57,7 @@ export function todoListReducer(state = initialState, action) {
 		case "DELETE_ELEM": {
 			let newObj = Object.assign({}, state);
 			for (let key in state.tasks) {
-				if (state.tasks[key].id == action.payload) {
+				if (state.tasks[key]._id == action.payload) {
 					newObj.tasks.splice(key, 1);
 					newObj.nowActive = null;
 					return newObj;
@@ -86,13 +76,21 @@ export function todoListReducer(state = initialState, action) {
 		case "SET_NON_ACTIVE": {
 			let newObj = Object.assign({}, state);
 			for (let key in state.tasks) {
-				if (state.tasks[key].id == action.payload) {
+				if (state.tasks[key]._id == action.payload) {
 					newObj.tasks[key].className =
 						"listElement";
 					newObj.nowActive = null;
 					return newObj;
 				}
 			}
+		}
+
+		case "GET_LIST_FROM_SERVER": {
+			return {
+				...state,
+				tasks: action.payload,
+				wasLoadedFromServer: true
+			};
 		}
 
 		default:

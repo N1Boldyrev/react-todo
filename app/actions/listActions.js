@@ -1,3 +1,5 @@
+import { getData } from "./../fetch.js";
+
 export function setActive(id) {
 	return {
 		type: "SET_ACTIVE",
@@ -39,5 +41,16 @@ export function setNonActive(id) {
 	return {
 		type: "SET_NON_ACTIVE",
 		payload: id
+	};
+}
+
+export function getList() {
+	return dispatch => {
+		getData("/getList").then(data => {
+			dispatch({
+				type: "GET_LIST_FROM_SERVER",
+				payload: data
+			});
+		});
 	};
 }

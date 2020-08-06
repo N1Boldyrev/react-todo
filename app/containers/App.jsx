@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { List } from "./../components/List.jsx";
 import { Logo } from "./../components/Logo.jsx";
@@ -10,7 +10,8 @@ import {
 	changeElemName,
 	deleteElem,
 	listToolsClose,
-	setNonActive
+	setNonActive,
+	getList
 } from "./../actions/listActions.js";
 import {
 	createNewTask,
@@ -43,7 +44,8 @@ function App(props) {
 		deleteElemAction,
 		changeTaskTextAction,
 		listToolsCloseAction,
-		setNonActiveAction
+		setNonActiveAction,
+		getListAction
 	} = props;
 
 	let pageState;
@@ -59,6 +61,7 @@ function App(props) {
 				deleteElem={deleteElemAction}
 				listToolsClose={listToolsCloseAction}
 				setNonActive={setNonActiveAction}
+				getList={getListAction}
 			/>
 		);
 	else if (page.pageState == "WorkSection") {
@@ -143,7 +146,8 @@ const mapDispatchToProps = dispatch => ({
 	changeTaskTextAction: (id, newText) =>
 		dispatch(changeTaskText(id, newText)),
 	listToolsCloseAction: () => dispatch(listToolsClose()),
-	setNonActiveAction: id => dispatch(setNonActive(id))
+	setNonActiveAction: id => dispatch(setNonActive(id)),
+	getListAction: () => dispatch(getList())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
