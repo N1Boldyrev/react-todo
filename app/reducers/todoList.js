@@ -13,14 +13,14 @@ export function todoListReducer(state = initialState, action) {
 			for (let key in state.tasks) {
 				if (
 					// Проверяем активный элемент и делаем неактивным
-					state.tasks[key]._id ==
+					state.tasks[key].id ==
 						state.nowActive &&
 					state.nowActive != action.payload
 				) {
 					newObj.tasks[key].className =
 						"listElement";
 				}
-				if (state.tasks[key]._id == action.payload) {
+				if (state.tasks[key].id == action.payload) {
 					//Делаем нажатый элемент активным
 					newObj.tasks[key].className =
 						"listElement active";
@@ -35,9 +35,9 @@ export function todoListReducer(state = initialState, action) {
 		case "CREATE_NEW_ELEM": {
 			let newObj = Object.assign({}, state);
 			let payload = {
-				taskName: action.payload,
+				taskName: action.payload.taskName,
 				className: "listElement",
-				_id: Math.random()
+				id: action.payload.id
 			};
 			newObj.tasks.push(payload);
 			return newObj;
@@ -46,8 +46,10 @@ export function todoListReducer(state = initialState, action) {
 		case "CHANGE_ELEM_NAME": {
 			let newObj = Object.assign({}, state);
 			for (let key in state.tasks) {
-				if (state.tasks[key]._id == action.payload.id) {
-					state.tasks[key].taskName =
+				if (state.tasks[key].id == action.payload.id) {
+					newObj.tasks[key].taskName =
+						action.payload.newName;
+					newObj.activeTitle =
 						action.payload.newName;
 					return newObj;
 				}
@@ -57,7 +59,7 @@ export function todoListReducer(state = initialState, action) {
 		case "DELETE_ELEM": {
 			let newObj = Object.assign({}, state);
 			for (let key in state.tasks) {
-				if (state.tasks[key]._id == action.payload) {
+				if (state.tasks[key].id == action.payload) {
 					newObj.tasks.splice(key, 1);
 					newObj.nowActive = null;
 					return newObj;
@@ -76,7 +78,7 @@ export function todoListReducer(state = initialState, action) {
 		case "SET_NON_ACTIVE": {
 			let newObj = Object.assign({}, state);
 			for (let key in state.tasks) {
-				if (state.tasks[key]._id == action.payload) {
+				if (state.tasks[key].id == action.payload) {
 					newObj.tasks[key].className =
 						"listElement";
 					newObj.nowActive = null;

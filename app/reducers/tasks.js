@@ -1,17 +1,13 @@
+import { postData } from "./../fetch.js";
+
 const initialState = {
-	tasksList: [
-		{
-			text: "blah blah blah",
-			id: 1,
-			className: "checkboxText",
-			checkboxClass: "fakeCheckbox",
-			checked: false
-		}
-	],
+	tasksList: [],
 	currentTask: null,
 	currentTaskText: "",
 	instrumentsState: "instruments close",
-	allTasksComplete: false
+	allTasksComplete: false,
+	wasLoadedFromServer: false,
+	listId: ""
 };
 
 export function tasksReducer(state = initialState, action) {
@@ -93,6 +89,7 @@ export function tasksReducer(state = initialState, action) {
 		case "SET_CHECKED": {
 			//Меняем состояние чекбокса
 			let newObj = Object.assign({}, state);
+			let checked = false;
 			for (let key in state.tasksList) {
 				if (state.tasksList[key].id == action.payload) {
 					if (
@@ -106,6 +103,7 @@ export function tasksReducer(state = initialState, action) {
 							key
 						].checkboxClass =
 							"fakeCheckbox checked";
+						checked = true;
 					} else {
 						newObj.tasksList[
 							key
@@ -114,7 +112,15 @@ export function tasksReducer(state = initialState, action) {
 							key
 						].checkboxClass =
 							"fakeCheckbox";
+						checked = false;
 					}
+					postData("/checked", {
+						id: action.payload,
+						checked: checked,
+						checkboxClass:
+							newObj.tasksList[key]
+								.checkboxClass
+					});
 					return newObj;
 				}
 			}
@@ -129,20 +135,27 @@ export function tasksReducer(state = initialState, action) {
 				) {
 					newObj.tasksList[key].text =
 						action.payload.newText;
+					newObj.currentTaskText =
+						action.payload.newText;
 					return newObj;
 				}
 			}
 		}
 
-		case "CHECK_ALL_TASKS_COMPLETE": {
-			let tasksComplete = true;
-			for (let key in state.tasksList) {
-				if (state.tasksList[key].checked == false) {
-					tasksComplete = false;
-					break;
-				}
-			}
-			return { ...state, allTasksComplete: tasksComplete };
+		case "GET_TASKS_FROM_SERVER": {
+			return {
+				...state,
+				tasksList: action.payload,
+				wasLoadedFromServer: true
+			};
+		}
+
+		case "SET_LIST_ID": {
+			return { ...state, listId: action.payload };
+		}
+
+		case "SET_LOADED_FALSE": {
+			return { ...state, wasLoadedFromServer: false };
 		}
 
 		default:

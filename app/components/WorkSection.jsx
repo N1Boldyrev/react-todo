@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Checkbox } from "./Checkbox.jsx";
 import { InstrumentsButtons } from "./InstrumentsButtons.jsx";
 import { InstrumentsInput } from "./InstrumentsInput.jsx";
 import "./../styles/desktop/workSection.scss";
 
 export function WorkSection(props) {
+	useEffect(() => {
+		if (props.globalTasks.wasLoadedFromServer == false)
+			props.getTasks(props.globalTasks.listId);
+	});
+
 	let instruments;
 	let tasks;
 
@@ -37,6 +42,9 @@ export function WorkSection(props) {
 			<InstrumentsInput
 				createNewTask={props.createNewTask}
 				setPageState={props.setPageState}
+				globalTasks={props.globalTasks}
+				setListId={props.setListId}
+				setLoadedFalse={props.setLoadedFalse}
 			/>
 		);
 	else if (props.instruments == "instruments open")

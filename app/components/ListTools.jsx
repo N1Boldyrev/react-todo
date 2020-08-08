@@ -6,6 +6,7 @@ export class ListTools extends Component {
 
 		this.changeElement = this.changeElement.bind(this);
 		this.deleteElement = this.deleteElement.bind(this);
+		this.openTask = this.openTask.bind(this);
 		this.closeTools = this.closeTools.bind(this);
 	}
 
@@ -30,6 +31,11 @@ export class ListTools extends Component {
 		}
 	}
 
+	openTask() {
+		this.props.setListId(this.props.todoList.nowActive);
+		this.props.setPageState("WorkSection");
+	}
+
 	closeTools() {
 		if (this.props.todoList.nowActive != null) {
 			this.props.setNonActive(this.props.todoList.nowActive);
@@ -48,8 +54,7 @@ export class ListTools extends Component {
 				<button onClick={this.changeElement}>
 					Изменить
 				</button>
-				<button>Открыть</button>
-				<button>Выполнено</button>
+				<button onClick={this.openTask}>Открыть</button>
 				<button onClick={this.deleteElement}>
 					Удалить
 				</button>

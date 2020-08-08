@@ -19,7 +19,10 @@ import {
 	closeInstruments,
 	setActiveTask,
 	setChecked,
-	changeTaskText
+	changeTaskText,
+	getTasks,
+	setListId,
+	setLoadedFalse
 } from "./../actions/tasksActions.js";
 import { setPageState } from "./../actions/pageActions.js";
 import { textChangerSetValue } from "./../actions/textChangerActions.js";
@@ -45,7 +48,10 @@ function App(props) {
 		changeTaskTextAction,
 		listToolsCloseAction,
 		setNonActiveAction,
-		getListAction
+		getListAction,
+		getTasksAction,
+		setListIdAction,
+		setLoadedFalseAction
 	} = props;
 
 	let pageState;
@@ -62,6 +68,7 @@ function App(props) {
 				listToolsClose={listToolsCloseAction}
 				setNonActive={setNonActiveAction}
 				getList={getListAction}
+				setListId={setListIdAction}
 			/>
 		);
 	else if (page.pageState == "WorkSection") {
@@ -73,11 +80,15 @@ function App(props) {
 				setActiveTask={setActiveTaskAction}
 				currentTask={tasks.currentTask}
 				currentTaskText={tasks.currentTaskText}
+				globalTasks={tasks}
 				tasks={tasks.tasksList}
 				instruments={tasks.instrumentsState}
 				setPageState={setPageStateAction}
 				setChecked={setCheckedAction}
 				setTextChangerValue={textChangerSetValueAction}
+				setListId={setListIdAction}
+				getTasks={getTasksAction}
+				setLoadedFalse={setLoadedFalseAction}
 			/>
 		);
 	} else if (page.pageState == "TextChanger") {
@@ -106,7 +117,6 @@ function App(props) {
 }
 
 const mapStateToProps = store => {
-	console.log(store);
 	return {
 		todoList: store.todoList,
 		page: store.page,
@@ -147,7 +157,10 @@ const mapDispatchToProps = dispatch => ({
 		dispatch(changeTaskText(id, newText)),
 	listToolsCloseAction: () => dispatch(listToolsClose()),
 	setNonActiveAction: id => dispatch(setNonActive(id)),
-	getListAction: () => dispatch(getList())
+	getListAction: () => dispatch(getList()),
+	getTasksAction: id => dispatch(getTasks(id)),
+	setListIdAction: id => dispatch(setListId(id)),
+	setLoadedFalseAction: () => dispatch(setLoadedFalse())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

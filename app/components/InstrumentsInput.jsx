@@ -16,7 +16,8 @@ export class InstrumentsInput extends Component {
 				id: Math.random().toString(),
 				className: "checkboxText",
 				checkboxClass: "fakeCheckbox",
-				checked: false
+				checked: false,
+				elemId: this.props.globalTasks.listId
 			};
 			this.props.createNewTask(task);
 			input.value = "";
@@ -24,6 +25,8 @@ export class InstrumentsInput extends Component {
 	}
 
 	backToTaskList() {
+		this.props.setListId("");
+		this.props.setLoadedFalse();
 		this.props.setPageState("List");
 	}
 

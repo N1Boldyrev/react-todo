@@ -1,4 +1,4 @@
-import { getData } from "./../fetch.js";
+import { getData, postData } from "./../fetch.js";
 
 export function setActive(id) {
 	return {
@@ -8,13 +8,19 @@ export function setActive(id) {
 }
 
 export function createNewElem(elemName) {
+	let id = Math.random();
+	postData("/addNewElement", { taskName: elemName, id: id });
 	return {
 		type: "CREATE_NEW_ELEM",
-		payload: elemName
+		payload: {
+			taskName: elemName,
+			id: id
+		}
 	};
 }
 
 export function changeElemName(newName, id) {
+	postData("/changeListElem", { taskName: newName, id: id });
 	return {
 		type: "CHANGE_ELEM_NAME",
 		payload: {
@@ -25,6 +31,7 @@ export function changeElemName(newName, id) {
 }
 
 export function deleteElem(id) {
+	postData("/deleteListElem", { id: id });
 	return {
 		type: "DELETE_ELEM",
 		payload: id

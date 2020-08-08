@@ -17,6 +17,6 @@ monk(dbUrl, (err, database) => {
 	if (err) return console.log(err);
 	require("./routes/index")(app);
 	require("./routes/list")(app, database);
-	//require("./routes/tasks")(app, database);
+	require("./routes/tasks")(app, database);
 	app.listen(port, () => console.log("server start"));
 });

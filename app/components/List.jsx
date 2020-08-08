@@ -9,7 +9,6 @@ export function List(props) {
 	useEffect(() => {
 		if (props.todoList.wasLoadedFromServer == false)
 			props.getList();
-		console.log("udate");
 	});
 
 	if (props.tasks.length == 0) {
@@ -21,8 +20,8 @@ export function List(props) {
 					<ListElement
 						className={elem.className}
 						innerText={elem.taskName}
-						key={elem._id}
-						id={elem._id}
+						key={elem.id}
+						id={elem.id}
 						setActive={props.setActive}
 					/>
 				))}
@@ -48,6 +47,7 @@ export function List(props) {
 				deleteElem={props.deleteElem}
 				listToolsClose={props.listToolsClose}
 				setNonActive={props.setNonActive}
+				setListId={props.setListId}
 			/>
 		);
 	}
