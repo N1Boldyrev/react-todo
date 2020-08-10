@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { List } from "./../components/List.jsx";
+import { List } from "./../components/list/List.jsx";
 import { Logo } from "./../components/Logo.jsx";
-import { WorkSection } from "./../components/WorkSection.jsx";
+import { WorkSection } from "./../components/tasks/WorkSection.jsx";
 import { TextChanger } from "./../components/TextChanger.jsx";
 import {
 	setActive,
@@ -26,7 +26,7 @@ import {
 } from "./../actions/tasksActions.js";
 import { setPageState } from "./../actions/pageActions.js";
 import { textChangerSetValue } from "./../actions/textChangerActions.js";
-import "./../styles/desktop/body.scss";
+import "./../styles/base.scss";
 
 function App(props) {
 	const {

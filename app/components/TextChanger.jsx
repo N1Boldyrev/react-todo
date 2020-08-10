@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./../styles/desktop/textChanger.scss";
 
 export class TextChanger extends Component {
 	constructor(props) {

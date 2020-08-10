@@ -1,5 +1,4 @@
 import React from "react";
-import "./../styles/desktop/logo.scss";
 
 export function Logo(props) {
 	return (

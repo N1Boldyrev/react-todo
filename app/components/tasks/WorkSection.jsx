@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Checkbox } from "./Checkbox.jsx";
 import { InstrumentsButtons } from "./InstrumentsButtons.jsx";
 import { InstrumentsInput } from "./InstrumentsInput.jsx";
-import "./../styles/desktop/workSection.scss";
+
 
 export function WorkSection(props) {
 	useEffect(() => {

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { ListElement } from "./ListElement.jsx";
 import { ListTools } from "./ListTools.jsx";
 import { ListAddElement } from "./ListAddElement.jsx";
-import "./../styles/desktop/list.scss";
+
 
 export function List(props) {
 	let listInner;
