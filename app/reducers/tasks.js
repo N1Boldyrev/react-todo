@@ -155,7 +155,10 @@ export function tasksReducer(state = initialState, action) {
 		}
 
 		case "SET_LOADED_FALSE": {
-			return { ...state, wasLoadedFromServer: false };
+			return {
+				...state,
+				wasLoadedFromServer: false
+			};
 		}
 
 		default:

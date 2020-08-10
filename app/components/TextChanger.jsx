@@ -13,10 +13,26 @@ export class TextChanger extends Component {
 		this.backToRoot = this.backToRoot.bind(this);
 		this.change = this.change.bind(this);
 		this.inputChange = this.inputChange.bind(this);
+		this.onKeydown = this.onKeydown.bind(this);
 	}
 
 	componentDidMount() {
 		this.textInput.current.focus();
+		addEventListener("keydown", this.onKeydown);
+	}
+
+	componentWillUnmount() {
+		removeEventListener("keydown", this.onKeydown);
+	}
+
+	onKeydown(event) {
+		let key = event.key;
+
+		if (key == "Escape") {
+			this.backToRoot();
+		} else if (key == "Enter") {
+			this.change();
+		}
 	}
 
 	backToRoot() {

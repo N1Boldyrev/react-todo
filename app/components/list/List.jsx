@@ -3,7 +3,6 @@ import { ListElement } from "./ListElement.jsx";
 import { ListTools } from "./ListTools.jsx";
 import { ListAddElement } from "./ListAddElement.jsx";
 
-
 export function List(props) {
 	let listInner;
 	useEffect(() => {

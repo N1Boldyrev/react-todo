@@ -3,7 +3,6 @@ import { Checkbox } from "./Checkbox.jsx";
 import { InstrumentsButtons } from "./InstrumentsButtons.jsx";
 import { InstrumentsInput } from "./InstrumentsInput.jsx";
 
-
 export function WorkSection(props) {
 	useEffect(() => {
 		if (props.globalTasks.wasLoadedFromServer == false)
