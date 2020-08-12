@@ -1,8 +1,8 @@
-@import "./variables.scss";
+@import "./../variables.scss";
 
 .list {
 	height: 80%;
-	width: 40%;
+	width: 60%;
 	border-radius: 10px;
 	padding: 10px;
 	border: 2px dashed #ff8700;
@@ -15,6 +15,10 @@
 	justify-content: space-between;
 	animation-duration: 0.5s;
 	animation-name: vanish;
+}
+
+.elements {
+	overflow-y: auto;
 }
 
 .list-tools {

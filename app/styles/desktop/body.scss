@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import "./../variables.scss";
 
 body {
 	background-color: #120a00;
@@ -40,4 +40,25 @@ button:hover {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background: $background;
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
+	-moz-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
+	box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: $font-color;
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: $active;
 }

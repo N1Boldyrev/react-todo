@@ -22,6 +22,7 @@ export class InstrumentsButtons extends Component {
 		let key = event.key;
 		if (key == "Delete") this.deleteTask();
 		else if (key == "Escape") this.deactiveTask();
+		else if (key == "Enter") this.changeTask();
 	}
 
 	deactiveTask() {
