@@ -14,7 +14,6 @@ module.exports = function(app, db) {
 	});
 
 	app.post("/checked", bodyParser.jsonParser, req => {
-		console.log(req.body);
 		collection.update(
 			{ id: req.body.id },
 			{

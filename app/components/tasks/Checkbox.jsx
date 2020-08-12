@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./../styles/desktop/checkbox.scss";
+
 
 export class Checkbox extends Component {
 	constructor(props) {

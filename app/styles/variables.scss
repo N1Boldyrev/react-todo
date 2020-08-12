@@ -2,3 +2,11 @@ $font-color: #ff8700;
 $active: #c86700;
 $apple-green: #33ff33;
 $background: #120a00;
+@keyframes vanish {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

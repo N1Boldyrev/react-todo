@@ -5,6 +5,19 @@ export class ListAddElement extends Component {
 		super(props);
 
 		this.createElement = this.createElement.bind(this);
+		this.keyDown = this.keyDown.bind(this);
+	}
+
+	componentDidMount() {
+		addEventListener("keydown", this.keyDown);
+	}
+
+	componentWillUnmount() {
+		removeEventListener("keydown", this.keyDown);
+	}
+
+	keyDown(event) {
+		if (event.key == "Enter") this.createElement();
 	}
 
 	createElement() {

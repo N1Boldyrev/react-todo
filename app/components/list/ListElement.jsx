@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./../styles/desktop/listElement.scss";
 
 export class ListElement extends Component {
 	constructor(props) {

@@ -7,6 +7,22 @@ export class InstrumentsButtons extends Component {
 		this.deactiveTask = this.deactiveTask.bind(this);
 		this.deleteTask = this.deleteTask.bind(this);
 		this.changeTask = this.changeTask.bind(this);
+		this.onKeydown = this.onKeydown.bind(this);
+	}
+
+	componentDidMount() {
+		addEventListener("keydown", this.onKeydown);
+	}
+
+	componentWillUnmount() {
+		removeEventListener("keydown", this.onKeydown);
+	}
+
+	onKeydown(event) {
+		let key = event.key;
+		if (key == "Delete") this.deleteTask();
+		else if (key == "Escape") this.deactiveTask();
+		else if (key == "Enter") this.changeTask();
 	}
 
 	deactiveTask() {

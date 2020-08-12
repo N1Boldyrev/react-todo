@@ -1,8 +1,10 @@
-@import "./variables.scss";
+@import "./../variables.scss";
 .task {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	animation-duration: 0.5s;
+	animation-name: vanish;
 }
 
 .task:hover {
