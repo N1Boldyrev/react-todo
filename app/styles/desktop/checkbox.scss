@@ -1,70 +1,11 @@
-@import "./../variables.scss";
-.task {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	animation-duration: 0.5s;
-	animation-name: vanish;
-}
-
-.task:hover {
-	cursor: pointer;
-}
-
 .fakeCheckbox {
-	width: 20px;
-	height: 20px;
-	border: 1px dotted $font-color;
-	border-radius: 3px;
-	transition: linear 0.1s;
-}
-
-.fakeCheckbox:hover {
-	-webkit-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
-	-moz-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
-	box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
-	cursor: pointer;
-}
-
-.fakeCheckbox.checked {
-	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
-	background-color: $font-color;
-}
-
-.fakeCheckbox.checked:hover {
-	cursor: pointer;
+        width: 20px;
+        height: 20px;
 }
 
 .checkboxText {
-	font-size: 20px;
-	margin-left: 10px;
-	padding-left: 5px;
-	padding: 5px;
-	width: 100%;
-	transition: linear 0.1s;
-}
-
-.checkboxText:hover {
-	background-color: $font-color;
-	color: black;
-	-webkit-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
-	-moz-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
-	box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
-	cursor: pointer;
-	border-radius: 3px;
-}
-
-.checkboxText.active {
-	color: black;
-	background-color: $active;
-	text-shadow: none;
-	border-radius: 3px;
-	-moz-user-select: none;
-	-khtml-user-select: none;
-	user-select: none;
-	transition: linear 0.1s;
-}
-
-.checkboxText.active:hover {
-	background-color: $font-color;
+        font-size: 20px;
+        margin-left: 10px;
+        padding-left: 5px;
+        padding: 5px;
 }

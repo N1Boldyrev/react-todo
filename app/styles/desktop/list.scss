@@ -1,58 +1,8 @@
-@import "./../variables.scss";
-
 .list {
-	height: 80%;
-	width: 60%;
-	border-radius: 10px;
-	padding: 10px;
-	border: 2px dashed #ff8700;
-	-webkit-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
-	-moz-box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
-	box-shadow: 0px 0px 15px 0px rgba(255, 135, 0, 1);
-
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	animation-duration: 0.5s;
-	animation-name: vanish;
-}
-
-.elements {
-	overflow-y: auto;
-}
-
-.list-tools {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-
-	animation-duration: 0.5s;
-	animation-name: vanish;
-	button {
-		width: 33%;
-	}
-}
-
-.listAddElement {
-	width: 100%;
-	button {
-		width: 100%;
-	}
-	animation-duration: 0.5s;
-	animation-name: vanish;
-}
-
-.list-Tools {
-	.backButton {
-		width: 10%;
-	}
+        padding: 10px;
 }
 
 .listEmptyText {
-	color: $font-color;
-	align-self: center;
-	font-size: 25px;
-	padding-top: 20px;
-	animation-duration: 0.5s;
-	animation-name: vanish;
+        font-size: 25px;
+        padding-top: 20px;
 }
