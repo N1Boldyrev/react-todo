@@ -1,8 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import "./global/global.scss";
+
 @media screen and (min-width: 991px) {
-	@import "./desktop/desktop.scss";
+        @import "./desktop/desktop.scss";
 }
 
-@media screen and (max-max-width: 991px) {
+@media screen and (max-width: 991px) {
+        @import "./tablet/tablet.scss";
+}
+
+@media screen and (max-width: 479px) {
+        @import "./phone/phone.scss";
 }
