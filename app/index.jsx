@@ -5,8 +5,8 @@ import { store } from "./store/configureStore.js";
 import App from "./containers/App.jsx";
 
 ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>,
-	document.getElementById("root")
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById("root")
 );
