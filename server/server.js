@@ -14,9 +14,9 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "static")));
 
 monk(dbUrl, (err, database) => {
-	if (err) return console.log(err);
-	require("./routes/index")(app);
-	require("./routes/list")(app, database);
-	require("./routes/tasks")(app, database);
-	app.listen(port, () => console.log("server start"));
+    if (err) return console.log(err);
+    require("./routes/index")(app);
+    require("./routes/list")(app, database);
+    require("./routes/tasks")(app, database);
+    app.listen(port, () => console.log("server start"));
 });

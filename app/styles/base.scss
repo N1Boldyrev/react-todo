@@ -3,13 +3,13 @@
 @import "./global/global.scss";
 
 @media screen and (min-width: 991px) {
-        @import "./desktop/desktop.scss";
+    @import "./desktop/desktop.scss";
 }
 
 @media screen and (max-width: 991px) {
-        @import "./tablet/tablet.scss";
+    @import "./tablet/tablet.scss";
 }
 
 @media screen and (max-width: 479px) {
-        @import "./phone/phone.scss";
+    @import "./phone/phone.scss";
 }

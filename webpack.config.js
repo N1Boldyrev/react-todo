@@ -1,27 +1,23 @@
 module.exports = [
-	{
-		entry: __dirname + "/app/index.jsx",
-		output: {
-			path: __dirname + "/static",
-			filename: "app.js",
-			publicPath: "/"
-		},
-		module: {
-			rules: [
-				{
-					test: /\.jsx$/,
-					use: "babel-loader",
-					exclude: [/node_modules/]
-				},
-				{
-					test: /\.scss$/,
-					use: [
-						"style-loader",
-						"css-loader",
-						"sass-loader"
-					]
-				}
-			]
-		}
-	}
+    {
+        entry: __dirname + "/app/index.jsx",
+        output: {
+            path: __dirname + "/server/static",
+            filename: "app.js",
+            publicPath: "/"
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.jsx$/,
+                    use: "babel-loader",
+                    exclude: [/node_modules/]
+                },
+                {
+                    test: /\.scss$/,
+                    use: ["style-loader", "css-loader", "sass-loader"]
+                }
+            ]
+        }
+    }
 ];

@@ -1,16 +1,16 @@
 .workSection {
-        height: 90%;
-        width: 90%;
-        border: none;
-        box-shadow: none;
+    height: 90%;
+    width: 90%;
+    border: none;
+    box-shadow: none;
 }
 
 .input {
-        input {
-                font-size: 10px;
-        }
+    input {
+        font-size: 10px;
+    }
 
-        input::placeholder {
-                font-size: 7px;
-        }
+    input::placeholder {
+        font-size: 7px;
+    }
 }
