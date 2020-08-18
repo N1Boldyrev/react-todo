@@ -5,7 +5,7 @@ export class TextChanger extends Component {
         super(props);
 
         this.state = {
-            inputValue: this.props.placeholder,
+            inputValue: this.props.placeholder
         };
 
         this.textInput = React.createRef();
@@ -41,18 +41,10 @@ export class TextChanger extends Component {
 
     change() {
         let input = this.textInput.current;
-        if (
-            this.props.rootPage == "List" &&
-            this.props.buttonText == "Изменить" &&
-            input.value != ""
-        ) {
+        if (this.props.rootPage == "List" && this.props.buttonText == "Изменить" && input.value != "") {
             this.props.changeElemName(input.value, this.props.elementId);
             this.backToRoot();
-        } else if (
-            this.props.rootPage == "List" &&
-            this.props.buttonText == "Добавить" &&
-            input.value != ""
-        ) {
+        } else if (this.props.rootPage == "List" && this.props.buttonText == "Добавить" && input.value != "") {
             this.props.createNewElem(input.value);
             this.backToRoot();
         } else if (this.props.rootPage == "WorkSection" && input.value != "") {
@@ -71,18 +63,11 @@ export class TextChanger extends Component {
                 <div className="textChanger-text">{this.props.innerText}</div>
 
                 <div className="textChanger-input">
-                    <input
-                        type="text"
-                        ref={this.textInput}
-                        value={this.state.inputValue}
-                        onChange={this.inputChange}
-                    />
+                    <input type="text" ref={this.textInput} value={this.state.inputValue} onChange={this.inputChange} />
                 </div>
                 <div className="textChanger-instruments">
                     <button onClick={this.backToRoot}>{"<<"}</button>
-                    <button onClick={this.change}>
-                        {this.props.buttonText}
-                    </button>
+                    <button onClick={this.change}>{this.props.buttonText}</button>
                 </div>
             </div>
         );

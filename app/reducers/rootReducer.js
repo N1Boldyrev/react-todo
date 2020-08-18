@@ -5,8 +5,8 @@ import { tasksReducer } from "./tasks";
 import { textChangerReducer } from "./textChanger";
 
 export const rootReducer = combineReducers({
-	todoList: todoListReducer,
-	page: pageReducer,
-	tasks: tasksReducer,
-	textChanger: textChangerReducer
+    todoList: todoListReducer,
+    page: pageReducer,
+    tasks: tasksReducer,
+    textChanger: textChangerReducer
 });

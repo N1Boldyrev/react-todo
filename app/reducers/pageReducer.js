@@ -1,12 +1,12 @@
 const initialState = {
-	pageState: "List"
+    pageState: "List"
 };
 
 export function pageReducer(state = initialState, action) {
-	switch (action.type) {
-		case "SET_PAGE_STATE":
-			return { ...state, pageState: action.payload };
-		default:
-			return state;
-	}
+    switch (action.type) {
+        case "SET_PAGE_STATE":
+            return { ...state, pageState: action.payload };
+        default:
+            return state;
+    }
 }

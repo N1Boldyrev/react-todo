@@ -1,43 +1,35 @@
 import React, { Component } from "react";
 
 export class ListAddElement extends Component {
-	constructor(props) {
-		super(props);
+    constructor(props) {
+        super(props);
 
-		this.createElement = this.createElement.bind(this);
-		this.keyDown = this.keyDown.bind(this);
-	}
+        this.createElement = this.createElement.bind(this);
+        this.keyDown = this.keyDown.bind(this);
+    }
 
-	componentDidMount() {
-		addEventListener("keydown", this.keyDown);
-	}
+    componentDidMount() {
+        addEventListener("keydown", this.keyDown);
+    }
 
-	componentWillUnmount() {
-		removeEventListener("keydown", this.keyDown);
-	}
+    componentWillUnmount() {
+        removeEventListener("keydown", this.keyDown);
+    }
 
-	keyDown(event) {
-		if (event.key == "Enter") this.createElement();
-	}
+    keyDown(event) {
+        if (event.key == "Enter") this.createElement();
+    }
 
-	createElement() {
-		this.props.setTextChangerValue(
-			"Добавление задачи",
-			"",
-			"",
-			"List",
-			"Добавить"
-		);
-		this.props.setPageState("TextChanger");
-	}
+    createElement() {
+        this.props.setTextChangerValue("Добавление задачи", "", "", "List", "Добавить");
+        this.props.setPageState("TextChanger");
+    }
 
-	render() {
-		return (
-			<div className="listAddElement">
-				<button onClick={this.createElement}>
-					Добавить
-				</button>
-			</div>
-		);
-	}
+    render() {
+        return (
+            <div className="listAddElement">
+                <button onClick={this.createElement}>Добавить</button>
+            </div>
+        );
+    }
 }

@@ -1,62 +1,62 @@
 @import "./../variables.scss";
 body {
-        background-color: #120a00;
-        font-family: "Press Start 2P", cursive;
-        text-shadow: 1px 0px 4px $orange;
-        overflow: hidden;
+    background-color: #120a00;
+    font-family: "Press Start 2P", cursive;
+    text-shadow: 1px 0px 4px $orange;
+    overflow: hidden;
 }
 
 button {
-        border: none;
-        background: none;
-        color: $orange;
-        transition: linear 0.1s;
-        outline: none;
-        text-shadow: 3px 0px 4px $orange;
-        font-family: "Press Start 2P", cursive;
+    border: none;
+    background: none;
+    color: $orange;
+    transition: linear 0.1s;
+    outline: none;
+    text-shadow: 3px 0px 4px $orange;
+    font-family: "Press Start 2P", cursive;
 }
 
 button:hover {
-        background-color: $orange;
-        color: black;
-        -webkit-box-shadow: 0px 0px 15px 0px $orange;
-        -moz-box-shadow: 0px 0px 15px 0px $orange;
-        box-shadow: 0px 0px 15px 0px $orange;
-        border-radius: 3px;
-        text-shadow: none;
-        cursor: pointer;
+    background-color: $orange;
+    color: black;
+    -webkit-box-shadow: 0px 0px 15px 0px $orange;
+    -moz-box-shadow: 0px 0px 15px 0px $orange;
+    box-shadow: 0px 0px 15px 0px $orange;
+    border-radius: 3px;
+    text-shadow: none;
+    cursor: pointer;
 }
 
 .wrapper {
-        height: 90%;
-        margin-top: 5%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
+    height: 90%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 #root {
-        height: 100%;
-        width: 100%;
+    height: 100%;
+    width: 100%;
 }
 
 ::-webkit-scrollbar {
-        width: 5px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-        background: $background;
-        -webkit-box-shadow: 0px 0px 15px 0px $orange;
-        -moz-box-shadow: 0px 0px 15px 0px $orange;
-        box-shadow: 0px 0px 15px 0px $orange;
-        border-radius: 3px;
+    background: $background;
+    -webkit-box-shadow: 0px 0px 15px 0px $orange;
+    -moz-box-shadow: 0px 0px 15px 0px $orange;
+    box-shadow: 0px 0px 15px 0px $orange;
+    border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-        background: $orange;
-        border-radius: 3px;
+    background: $orange;
+    border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-        background: $active;
+    background: $active;
 }

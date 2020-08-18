@@ -1,55 +1,55 @@
 @import "./../variables.scss";
 .list {
-        border-radius: 10px;
-        border: 2px dashed $orange;
-        -webkit-box-shadow: 0px 0px 15px 0px $orange;
-        -moz-box-shadow: 0px 0px 15px 0px $orange;
-        box-shadow: 0px 0px 15px 0px $orange;
+    border-radius: 10px;
+    border: 2px dashed $orange;
+    -webkit-box-shadow: 0px 0px 15px 0px $orange;
+    -moz-box-shadow: 0px 0px 15px 0px $orange;
+    box-shadow: 0px 0px 15px 0px $orange;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        animation-duration: 0.5s;
-        animation-name: vanish;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation-duration: 0.5s;
+    animation-name: vanish;
 }
 
 .elements {
-        overflow-y: auto;
+    overflow-y: auto;
 }
 
 .list-tools {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 
-        animation-duration: 0.5s;
-        animation-name: vanish;
+    animation-duration: 0.5s;
+    animation-name: vanish;
 
-        button {
-                width: 33%;
-        }
+    button {
+        width: 33%;
+    }
 }
 
 .listAddElement {
+    width: 100%;
+
+    button {
         width: 100%;
+    }
 
-        button {
-                width: 100%;
-        }
-
-        animation-duration: 0.5s;
-        animation-name: vanish;
+    animation-duration: 0.5s;
+    animation-name: vanish;
 }
 
 .list-Tools {
-        .backButton {
-                width: 10%;
-        }
+    .backButton {
+        width: 10%;
+    }
 }
 
 .listEmptyText {
-        color: $orange;
-        align-self: center;
-        animation-duration: 0.5s;
-        animation-name: vanish;
+    color: $orange;
+    align-self: center;
+    animation-duration: 0.5s;
+    animation-name: vanish;
 }

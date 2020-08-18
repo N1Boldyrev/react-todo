@@ -1,68 +1,68 @@
 @import "./../variables.scss";
 .workSection {
-        height: 80%;
-        width: 60%;
-        border-radius: 10px;
-        padding: 10px;
-        border: dashed 2px $orange;
-        -webkit-box-shadow: 0px 0px 15px 0px $orange;
-        -moz-box-shadow: 0px 0px 15px 0px $orange;
-        box-shadow: 0px 0px 15px 0px $orange;
-        color: $orange;
-        outline: none;
-        animation-duration: 0.5s;
-        animation-name: vanish;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+    height: 80%;
+    width: 60%;
+    border-radius: 10px;
+    padding: 10px;
+    border: dashed 2px $orange;
+    -webkit-box-shadow: 0px 0px 15px 0px $orange;
+    -moz-box-shadow: 0px 0px 15px 0px $orange;
+    box-shadow: 0px 0px 15px 0px $orange;
+    color: $orange;
+    outline: none;
+    animation-duration: 0.5s;
+    animation-name: vanish;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .tasks {
-        overflow-y: auto;
+    overflow-y: auto;
 }
 
 .input {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-        input {
-                outline: none;
-                background-color: $background;
-                color: $orange;
-                font-family: "Press Start 2P", cursive;
-                text-shadow: 1px 0px 4px $orange;
-                width: 100%;
-                border: none;
-                border-bottom: solid 1px $orange;
-        }
-        input::placeholder {
-                text-shadow: none;
-        }
-        animation-duration: 0.5s;
-        animation-name: vanish;
+    input {
+        outline: none;
+        background-color: $background;
+        color: $orange;
+        font-family: "Press Start 2P", cursive;
+        text-shadow: 1px 0px 4px $orange;
+        width: 100%;
+        border: none;
+        border-bottom: solid 1px $orange;
+    }
+    input::placeholder {
+        text-shadow: none;
+    }
+    animation-duration: 0.5s;
+    animation-name: vanish;
 }
 
 .workSection-instruments {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-        button {
-                width: 100%;
-        }
+    button {
+        width: 100%;
+    }
 
-        :first-child {
-                width: 10%;
-        }
+    :first-child {
+        width: 10%;
+    }
 
-        animation-duration: 0.5s;
-        animation-name: vanish;
+    animation-duration: 0.5s;
+    animation-name: vanish;
 }
 
 .tasksEmpty {
-        color: $orange;
-        text-align: center;
-        animation-duration: 0.5s;
-        animation-name: vanish;
+    color: $orange;
+    text-align: center;
+    animation-duration: 0.5s;
+    animation-name: vanish;
 }
